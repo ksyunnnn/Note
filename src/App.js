@@ -25,7 +25,7 @@ class App extends Component {
               component: <Note />,
             },
             {
-              path: '/about',
+              path: '/usage',
               component: <Note about/>,
             },
             {

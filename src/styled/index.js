@@ -14,6 +14,7 @@ export const NoteWrapper = styled.div`
   line-height: 40px;
   max-width: ${NoteWidth}px;
   margin: 0 auto;
+  padding: 16px;
 `;
 
 export const NoteTextArea = styled.textarea`
@@ -56,4 +57,8 @@ export const NoteViewer = styled.div`
 
 export const IconWrapper = styled.div`
   float: right;
+`;
+
+export const LinkWrapper = styled.span`
+  margin: 0 4px;
 `;

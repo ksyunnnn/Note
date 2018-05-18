@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Icon, Transition } from 'semantic-ui-react';
 import marked from 'marked';
-import '../Note.css';
-
 import {
   NoteWrapper,
   NoteTextArea,
