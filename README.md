@@ -1,10 +1,15 @@
+# Note
+
+シンプルな入力に特化したノートアプリです。
+
 # package.json
 ```
 {
-  "name": "react-starter",
+  "name": "note-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "marked": "^0.3.19",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router-dom": "^4.2.2",
