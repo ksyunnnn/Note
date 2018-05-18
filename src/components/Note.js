@@ -77,6 +77,11 @@ hello ()  {
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
+
+# Collaborators
+
+[@ksyunnnn](https://twitter.com/ksyunnnn)
+<br /><br /><br /><br /><br />
 `;
 
 class Note extends Component {
@@ -84,7 +89,7 @@ class Note extends Component {
     super(props);
 
     this.state = {
-      value: this.props.about?aboutNoteText:'Please write an essay.',
+      value: this.props.about?aboutNoteText:'Please write something.',
       status: this.props.about?'viewing':'typing',
       visible: true,
     };
