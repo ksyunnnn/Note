@@ -10,7 +10,7 @@ import {
   NoteViewer,
  } from './styled';
 
-import { Note, Header } from './components'
+import { Note, Header } from './components';
 
 class App extends Component {
   render() {
