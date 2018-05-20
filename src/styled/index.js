@@ -21,6 +21,7 @@ export const NoteTextArea = styled.textarea`
   box-sizing: border-box;
   width: ${NoteWidth}px;
   height: 92vh;
+  line-height: 24px;
   font-size: 14px;
   margin: 4vh 0;
   padding: 0;
