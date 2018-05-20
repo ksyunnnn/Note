@@ -89,7 +89,7 @@ class Note extends Component {
     super(props);
 
     this.state = {
-      value: this.props.about?aboutNoteText:'Please write something.',
+      value: this.props.about?aboutNoteText:this.props.noteRegister,
       status: this.props.about?'viewing':'typing',
       visible: true,
     };
@@ -108,6 +108,7 @@ class Note extends Component {
 
   handleChange = (event) => {
     this.setState({value: event.target.value, status: 'typing'});
+    if(!this.props.about)this.props.noteRegist(event.target.value);
   }
 
   handleSubmit = (event) => {

@@ -23,9 +23,8 @@ class Header extends Component {
             label: 'Usage',
           },
         ].map((v,i)=>(
-          <LinkWrapper>
+          <LinkWrapper key={i}>
             <Link
-              key={i}
               to={v.to}
               style={{color: 'inherit',padding: '4px 8px'}}>
               {v.label}</Link>

@@ -13,6 +13,18 @@ import {
 import { Note, Header } from './components';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      noteRegister: 'Please write something.',
+    };
+  }
+
+  noteRegist = (value) => {
+    this.setState({noteRegister: value});
+  }
+
   render() {
     return (
       <div className="App">
@@ -22,7 +34,7 @@ class App extends Component {
           {[
             {
               path: '/',
-              component: <Note />,
+              component: <Note noteRegist={this.noteRegist} noteRegister={this.state.noteRegister}/>,
             },
             {
               path: '/usage',
