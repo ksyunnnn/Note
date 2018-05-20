@@ -2,6 +2,14 @@
 
 シンプルな入力に特化したノートアプリです。
 
+# Get started
+
+```
+git clone https://github.com/ksyunnnn/Note.git
+yarn
+yarn start
+```
+
 # package.json
 ```
 {
