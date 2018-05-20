@@ -1,33 +1,30 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import {
-  HeaderWrapper,
-  LinkWrapper,
-} from '../styled';
+import { HeaderWrapper, LinkWrapper } from '../Styled';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <HeaderWrapper>
         {[
           {
             to: '/',
-            label: 'Note',
+            label: 'Note'
           },
           {
             to: '/usage',
-            label: 'Usage',
+            label: 'Usage'
           },
-        ].map((v,i)=>(
+          {
+            to: '/about',
+            label: <i aria-hidden="true" class="info circle icon" />
+          }
+        ].map((v, i) => (
           <LinkWrapper key={i}>
-            <Link
-              to={v.to}
-              style={{color: 'inherit',padding: '4px 8px'}}>
-              {v.label}</Link>
+            <Link to={v.to} style={{ color: 'inherit', padding: '4px 8px' }}>
+              {v.label}
+            </Link>
           </LinkWrapper>
         ))}
       </HeaderWrapper>

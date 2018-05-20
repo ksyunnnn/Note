@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
-import styled from "styled-components";
-import {HashRouter, Switch, BrowserRouter as Router, Route, Link} from "react-router-dom";
-
-import {
-  NoteWrapper,
-  NoteTextArea,
-  ButtonWrapper,
-  NoteViewerWrapper,
-  NoteViewer,
- } from './styled';
+import { Switch, Route } from 'react-router-dom';
 
 import { Note, Header } from './components';
+import { Usage, About } from './Static';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      noteRegister: 'Please write something.',
+      noteRegister: ''
     };
   }
 
-  noteRegist = (value) => {
-    this.setState({noteRegister: value});
-  }
+  noteRegist = value => {
+    this.setState({ noteRegister: value });
+  };
 
   render() {
     return (
@@ -34,18 +26,30 @@ class App extends Component {
           {[
             {
               path: '/',
-              component: <Note noteRegist={this.noteRegist} noteRegister={this.state.noteRegister}/>,
+              component: (
+                <Note
+                  noteRegist={this.noteRegist}
+                  noteRegister={this.state.noteRegister}
+                />
+              )
             },
             {
               path: '/usage',
-              component: <Note about/>,
+              component: <Note static={Usage} />
             },
             {
-              path: '/typing',
-              component: <Note />,
-            },
-          ].map((v,i) => {
-            return <Route key={i} exact path={v.path} render={(props) => v.component} />;
+              path: '/about',
+              component: <Note static={About} />
+            }
+          ].map((v, i) => {
+            return (
+              <Route
+                key={i}
+                exact
+                path={v.path}
+                render={props => v.component}
+              />
+            );
           })}
         </Switch>
       </div>
