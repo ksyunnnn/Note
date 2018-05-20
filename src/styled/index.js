@@ -23,7 +23,7 @@ export const NoteTextArea = styled.textarea`
   height: 92vh;
   line-height: 24px;
   font-size: 14px;
-  color: #333;
+  color: #555;
   letter-spacing: 1px;
   margin: 4vh 0;
   padding: 0;
