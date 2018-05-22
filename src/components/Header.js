@@ -18,7 +18,7 @@ class Header extends Component {
           },
           {
             to: '/about',
-            label: <i aria-hidden="true" class="info circle icon" />
+            label: <i aria-hidden="true" className="info circle icon" />
           }
         ].map((v, i) => (
           <LinkWrapper key={i}>

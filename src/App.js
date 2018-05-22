@@ -9,12 +9,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      noteRegister: ''
+      noteRegister: localStorage.getItem('noteRegister')?localStorage.getItem('noteRegister'):'',
     };
   }
 
   noteRegist = value => {
     this.setState({ noteRegister: value });
+    localStorage.setItem('noteRegister', value);
   };
 
   render() {
