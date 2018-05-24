@@ -18,6 +18,9 @@ export const NoteWrapper = styled.div`
 `;
 
 export const NoteTextArea = styled.textarea`
+  ::-webkit-scrollbar{
+      display:none;
+  }
   box-sizing: border-box;
   width: ${NoteWidth}px;
   height: 92vh;
