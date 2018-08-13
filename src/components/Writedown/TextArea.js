@@ -1,5 +1,5 @@
 import styled, { injectGlobal } from 'styled-components';
-import { Colors } from 'variables';
+import { Colors, FontSizes } from 'variables';
 
 export default styled.textarea`
   ::-webkit-scrollbar {
@@ -18,7 +18,7 @@ export default styled.textarea`
   border-radius: 0;
 
   line-height: 24px;
-  font-size: 12px;
+  font-size: ${FontSizes.small};
   color: #555;
   letter-spacing: 1px;
 

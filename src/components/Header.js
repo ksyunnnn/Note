@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
-import { HeaderWrapper, IconButton, Anchor } from 'components/StyledComponents';
-import Icon from 'asset/icon.png';
+import { HeaderWrapper, IconButton, Button, LogoImage } from 'components/StyledComponents';
 
-export default () => (
+export default props => (
   <HeaderWrapper>
-    {[
-      {
-        to: '/',
-        label: <img src={Icon} style={{ width: '24px' }} />,
-      },
-      // {
-      //   to: '/usage',
-      //   label: 'Usage'
-      // }
-    ].map((v, i) => (
-      <Anchor to={v.to}>
-        <IconButton>{v.label}</IconButton>
-      </Anchor>
-    ))}
+    <LogoImage />
   </HeaderWrapper>
 );
