@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import marked from 'marked';
+import React, { useEffect, useState } from 'react';
 
-import { WritedownWrapper, ToolWrapper, MessageWrapper } from 'components/StyledComponents';
-import { Transition } from 'semantic-ui-react';
+import { WritedownWrapper, ToolWrapper, MessageWrapper } from '../StyledComponents';
 
 import TextArea from './TextArea';
 import View from './View';
@@ -20,55 +18,43 @@ const handleStorage = {
   },
 };
 
-class Writedown extends Component {
-  constructor(props) {
-    super(props);
+const Writedown = () => {
+  const [toggleView, setToggleView] = useState(false);
 
-    this.state = {
-      toggleView: false,
-      inputValue: '',
-      messageAction: {
-        action: null,
-        actionLabel: '',
-        message: '',
-      },
-    };
-  }
+  const [inputValue, setInputValue] = useState('');
+  const handleInputValue = (event) => setInputValue(event.target.value);
 
-  componentDidMount() {
-    this.setState({
-      inputValue: handleStorage.get() ? handleStorage.get() : usage,
+  const [messageAction, setMessageAction] = useState({
+    action: null,
+    actionLabel: '',
+    message: '',
+  });
+
+  useEffect(() => {
+    setInputValue(handleStorage.get() ? handleStorage.get() : usage);
+  }, []);
+
+  useEffect(() => {
+    setToggleView(inputValue.length > 0);
+    handleStorage.set(inputValue);
+  }, [inputValue]);
+
+  const deleteCurrentValue = () => {
+    const prevInputValue = inputValue;
+    setInputValue('');
+    setMessageAction({
+      action: () => setInputValue(prevInputValue),
+      actionLabel: '取り消し',
+      message: '削除しました',
     });
-  }
-
-  handleChange = event => {
-    this.setInputValue(event.target.value);
-  };
-
-  setInputValue = value => {
-    this.setState({
-      toggleView: value.length > 0,
-      inputValue: value,
-    });
-    handleStorage.set(value);
-  };
-
-  deleteCurrentValue = () => {
-    this.setState(prevState => ({
-      inputValue: '',
-      messageAction: {
-        action: () => this.setInputValue(prevState.inputValue),
-        actionLabel: '取り消し',
-        message: '削除しました',
-      },
-    }));
     handleStorage.set('');
 
     // [TODO]連打した時の対策がしたい
-    new Promise(resolve => {
+    // eslint-disable-next-line no-new
+    new Promise((resolve) => {
       setTimeout(() => {
         resolve(
-          this.setState({
+          setMessageAction({
             messageAction: null,
           }),
         );
@@ -76,22 +62,20 @@ class Writedown extends Component {
     });
   };
 
-  render() {
-    return (
-      <WritedownWrapper>
-        {this.state.messageAction && (
-          <MessageWrapper>
-            <Message {...this.state.messageAction} />
-          </MessageWrapper>
-        )}
-        <ToolWrapper>
-          <ToolKit deleteCurrentValue={this.deleteCurrentValue} />
-        </ToolWrapper>
-        <TextArea autoFocus={true} value={this.state.inputValue} onChange={this.handleChange} />
-        {this.state.inputValue && <View inputValue={this.state.inputValue} />}
-      </WritedownWrapper>
-    );
-  }
-}
+  return (
+    <WritedownWrapper>
+      {messageAction && (
+      <MessageWrapper>
+        <Message {...messageAction} />
+      </MessageWrapper>
+      )}
+      <ToolWrapper>
+        <ToolKit deleteCurrentValue={deleteCurrentValue} />
+      </ToolWrapper>
+      <TextArea autoFocus value={inputValue} onChange={handleInputValue} />
+      {inputValue && <View inputValue={inputValue} />}
+    </WritedownWrapper>
+  );
+};
 
 export default Writedown;

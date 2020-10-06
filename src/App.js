@@ -1,22 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { GlobalWrapper, SpMsg } from 'components/StyledComponents';
-import Header from 'components/Header';
-import Writedown from 'components/Writedown';
+import Header from './components/Header';
+import Writedown from './components/Writedown';
+import { GlobalWrapper, SpMsg } from './components/StyledComponents';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <GlobalWrapper>
-        <Header />
-        <Writedown />
-        <SpMsg>まだスマホに対応してません、、🙇</SpMsg>
-      </GlobalWrapper>
-    );
-  }
-}
+const App = () => (
+  <GlobalWrapper>
+    <Header />
+    <Writedown />
+    <SpMsg><span role="img" aria-label="bow">まだスマホに対応してません、、🙇</span></SpMsg>
+  </GlobalWrapper>
+);
 
 export default App;

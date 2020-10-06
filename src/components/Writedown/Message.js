@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
-import { Colors, FontSizes } from 'variables';
+import { FontSizes } from '../../variables';
 
 const MessageLabel = styled.div`
   display: inline-block;
@@ -27,8 +27,8 @@ const ActionLabel = styled.div`
 `;
 
 export default ({ message, action, actionLabel }) => (
-  <Fragment>
+  <>
     <MessageLabel>{message}</MessageLabel>
     {action && <ActionLabel onClick={action}>{actionLabel}</ActionLabel>}
-  </Fragment>
+  </>
 );

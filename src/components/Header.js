@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import { HeaderWrapper, IconButton, Button, LogoImage } from 'components/StyledComponents';
+import React from 'react';
+import {
+  HeaderWrapper, LogoImage,
+} from './StyledComponents';
 
-export default props => (
+export default () => (
   <HeaderWrapper>
     <LogoImage />
   </HeaderWrapper>

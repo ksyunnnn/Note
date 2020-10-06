@@ -1,10 +1,10 @@
-import styled, { injectGlobal } from 'styled-components';
-import { Colors, FontSizes } from 'variables';
-import { media } from 'helpers/media-query';
-
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Logo from 'asset/logo.svg';
-import Icon from 'asset/icon.png';
+import { Colors, FontSizes } from '../variables';
+
+import Icon from '../asset/icon.png';
+import Logo from '../asset/logo.svg';
+import { media } from '../helpers/media-query';
 
 // injectGlobal`
 //   body {
@@ -108,10 +108,11 @@ export const ViewWrapper = styled.div`
   max-height: 94vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  -webkit-overflow-scrolling: touch
+  -webkit-overflow-scrolling: touch;
   word-break: break-all;
   word-wrap: break-word;
-  ::-webkit-scrollbar{
+  
+  ::-webkit-scrollbar {
       display:none;
   }
 

@@ -1,14 +1,14 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 
-import { Button, IconButton, IconImage } from 'components/StyledComponents';
+import { Button, IconButton, IconImage } from '../StyledComponents';
 
 export default ({ deleteCurrentValue }) => (
-  <Fragment>
+  <>
     <IconButton>
       <IconImage />
     </IconButton>
     <Button onClick={deleteCurrentValue}>
       <i className="fas fa-trash" />
     </Button>
-  </Fragment>
+  </>
 );

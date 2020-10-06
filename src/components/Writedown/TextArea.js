@@ -1,5 +1,5 @@
-import styled, { injectGlobal } from 'styled-components';
-import { Colors, FontSizes } from 'variables';
+import styled from 'styled-components';
+import { FontSizes } from '../../variables';
 
 export default styled.textarea`
   ::-webkit-scrollbar {
