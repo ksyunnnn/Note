@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 import Logo from 'asset/logo.svg';
 import Icon from 'asset/icon.png';
 
-injectGlobal`
-  body {
-    background: ${Colors.grayLight}!important;
-  }
-`;
+// injectGlobal`
+//   body {
+//     background: ${Colors.grayLight}!important;
+//   }
+// `;
 
 export const GlobalWrapper = styled.div`
   font-family: 'Lato', sans-serif;
